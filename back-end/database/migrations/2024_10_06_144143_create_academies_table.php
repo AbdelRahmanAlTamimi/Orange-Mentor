@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('academies', function (Blueprint $table) {
             $table->id();
             $table->foreignId('supervisor_id')->constrained();
+            $table->string('location');
             $table->timestamps();
             $table->softDeletes();
         });
