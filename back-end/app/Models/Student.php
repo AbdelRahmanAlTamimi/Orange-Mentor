@@ -9,4 +9,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Student extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $fillable = ['academy_id'];
+
+    public function academy() {
+        return $this->belongsTo(Academy::class);
+    }
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+    public function submissions() {
+        return $this->hasMany(Submission::class);
+    }
 }
