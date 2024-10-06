@@ -16,6 +16,13 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+        Schema::create('academy_technology', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('academy_id')->constrained();
+            $table->foreignId('technology_id')->constrained();
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**
