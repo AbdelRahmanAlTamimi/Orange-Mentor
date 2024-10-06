@@ -9,4 +9,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Supervisor extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+    public function academies() {
+        return $this->hasMany(Academy::class);
+    }
 }
