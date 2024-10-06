@@ -29,6 +29,7 @@ return new class extends Migration
             $table->foreignId('manager_id')->nullable()->constrained()->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
