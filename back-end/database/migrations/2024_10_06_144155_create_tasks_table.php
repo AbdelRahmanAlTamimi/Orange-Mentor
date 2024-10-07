@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->dateTime('due_date');
+            $table->string('attachment');
+            $table->foreignId('technology_id')->constrained();
+            $table->foreignId('coach_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

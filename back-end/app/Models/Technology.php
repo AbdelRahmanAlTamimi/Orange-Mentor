@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Technology extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $fillable = ['name','status'];
+
+    public function tasks() {
+        return $this->hasMany(Task::class);
+    }
 }

@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('submissions', function (Blueprint $table) {
             $table->id();
+            $table->text('feedback')->nullable();
+            $table->dateTime('submission_date');
+            $table->text('github_repo_url');
+            $table->text('live_url');
+            $table->foreignId('task_id')->constrained();
+            $table->foreignId('coach_id')->constrained();
+            $table->foreignId('student_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
