@@ -27,20 +27,17 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'username' => $this->faker->userName,        // Generates a random username
-            'full_name' => $this->faker->name,           // Generates a random full name
-            'email' => $this->faker->unique()->safeEmail, // Generates a unique email address
-            'email_verified_at' => now(),                // Sets email verified time to now
-            'password' => bcrypt('password'),            // Assigns a hashed password (bcrypt)
-            'image' => $this->faker->optional()->imageUrl(), // Optionally generates a URL for the image
-            'gender' => $this->faker->randomElement(['male', 'female']), // Randomly assigns 'male' or 'female'
-            'phone' => $this->faker->optional()->phoneNumber, // Optionally generates a phone number
-            'role_id' => $this->faker->randomElement([0, 1, 2, 3]), // Randomly assigns a role ID
-            'DOB' => $this->faker->optional()->date(),    // Optionally generates a date of birth
-            'student_id' => Student::factory()->optional(), // Optionally generates a student and assigns its ID
-            'coach_id' => Coach::factory()->optional(),   // Optionally generates a coach and assigns its ID
-            'supervisor_id' => Supervisor::factory()->optional(), // Optionally generates a supervisor and assigns its ID
-            'remember_token' => Str::random(10),          // Generates a random remember token
+            'full_name' => $this->faker->name(),  // Generates a random full name
+            'username' => $this->faker->unique()->userName(),  // Generates a unique username
+            'email' => $this->faker->unique()->safeEmail(),  // Generates a unique email address
+            'password' => bcrypt('password'),  // Default password for testing
+            'role_id' => $this->faker->randomElement([0,1,2]),
+            'DOB' => $this->faker->date(),  // Generates a random date of birth
+            'gender' => $this->faker->randomElement(['male', 'female']),  // Randomly assigns gender
+            'phone' => $this->faker->phoneNumber(),   // Optionally generates a date of birth
+            'student_id' => Student::factory(), // Optionally generates a student and assigns its ID
+            'coach_id' => Coach::factory(),   // Optionally generates a coach and assigns its ID
+            'supervisor_id' => Supervisor::factory(), // Optionally generates a supervisor and assigns its ID
         ];
     }
 
