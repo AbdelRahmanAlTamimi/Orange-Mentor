@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Academy;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Coach>
@@ -17,7 +18,7 @@ class CoachFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'academy_id' => Academy::factory()
         ];
     }
 }

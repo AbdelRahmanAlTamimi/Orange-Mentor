@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->dateTime('due_date');
-            $table->string('attachment');
+            $table->string('attachment')->nullable();
             $table->foreignId('technology_id')->constrained();
             $table->foreignId('coach_id')->constrained();
             $table->timestamps();

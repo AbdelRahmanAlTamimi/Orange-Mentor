@@ -17,7 +17,8 @@ class TechnologyFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->word,  // Generates a random word for the technology name
+            'status' => $this->faker->randomElement(['active', 'inactive']), // Randomly selects 'active' or 'inactive'
         ];
     }
 }
