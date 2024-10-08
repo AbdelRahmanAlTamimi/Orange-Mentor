@@ -52,7 +52,8 @@ class SupervisorController extends Controller
             DB::commit();
 
             return response()->json([
-                'message' => 'Supervisor created successfully'
+                'message' => 'Supervisor created successfully',
+                'results' => $supervisor
             ], 200);
 
         } catch(Exception $e) {

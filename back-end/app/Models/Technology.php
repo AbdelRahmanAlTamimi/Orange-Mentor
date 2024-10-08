@@ -14,4 +14,8 @@ class Technology extends Model
     public function tasks() {
         return $this->hasMany(Task::class);
     }
+    public function academies()
+    {
+        return $this->belongsToMany(Academy::class, 'academy_technology')->withTimestamps();
+    }
 }

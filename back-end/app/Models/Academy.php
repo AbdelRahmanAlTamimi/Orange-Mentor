@@ -10,7 +10,7 @@ class Academy extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['location'];
+    protected $fillable = ['id','location','supervisor_id'];
 
     public function supervisor() {
         return $this->belongsTo(Supervisor::class);
@@ -20,6 +20,11 @@ class Academy extends Model
     }
     public function students() {
         return $this->hasMany(Student::class);
+    }
+
+    public function technologies()
+    {
+        return $this->belongsToMany(Technology::class, 'academy_technology')->withTimestamps();
     }
 
 }

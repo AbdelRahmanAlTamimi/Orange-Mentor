@@ -5,17 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
-use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SupervisorController;
-use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\CoachController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\FeedbackController;
-use App\Http\Controllers\SchoolClassController;
-use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\AcademyController;
+use App\Http\Controllers\TechnologyController;
 use App\Http\Controllers\AssigmentController;
 
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\ImageController;
+
 
 
 //Route::post('/register', [AuthController::class, 'register']);
@@ -67,12 +65,12 @@ Route::post('add_supervisor',[SupervisorController::class,'store']);
 Route::put('supervisorUpdate/{id}',[SupervisorController::class,'update']);
 Route::delete('supervisorDelete/{id}',[SupervisorController::class,'destroy']);
 
-//---------------- Teacher -----------------------------------------
-Route::get('teachers', [TeacherController::class, 'index']);
-Route::get('/teachers/{id}', [TeacherController::class, 'show']);
-Route::post('/add_teachers', [TeacherController::class, 'store']);
-Route::put('/teachersUpdate/{id}', [TeacherController::class, 'update']);
-Route::delete('/teachersDelete/{id}', [TeacherController::class, 'destroy']);
+//---------------- Coach -----------------------------------------
+Route::get('coaches', [CoachController::class, 'index']);
+Route::get('/coaches/{id}', [CoachController::class, 'show']);
+Route::post('/add_coaches', [CoachController::class, 'store']);
+Route::put('/coachesUpdate/{id}', [CoachController::class, 'update']);
+Route::delete('/coachesDelete/{id}', [CoachController::class, 'destroy']);
 
 //---------------- Managers -----------------------------------------
 Route::get('managers', [ManagerController::class, 'index']);
@@ -87,25 +85,23 @@ Route::get('/feedbacksview/{id}', [FeedbackController::class, 'show']);
 Route::post('/feedbacksstore', [FeedbackController::class, 'store']);
 Route::put('/feedbacksupdate/{id}', [FeedbackController::class, 'update']);
 Route::delete('/feedbacksdelete/{id}', [FeedbackController::class, 'destroy']);
-//----------------------SchoolClass------------------------------
-Route::get('/class', [SchoolClassController::class, 'index']);
-Route::get('/classview/{id}', [SchoolClassController::class, 'show']);
-Route::post('/classstore', [SchoolClassController::class, 'store']);
-Route::put('/classupdate/{id}', [SchoolClassController::class, 'update']);
-Route::delete('/classdelete/{id}', [SchoolClassController::class, 'destroy']);
+//----------------------Academy------------------------------
+Route::get('/Academies', [AcademyController::class, 'index']);
+Route::get('/Academies/{id}', [AcademyController::class, 'show']);
+Route::post('/add_Academy', [AcademyController::class, 'store']);
+Route::put('/AcademyUpdate/{id}', [AcademyController::class, 'update']);
+Route::delete('/AcademyDelete/{id}', [AcademyController::class, 'destroy']);
 
 
-//---------------- Subjects -----------------------------------------
-
-Route::get('/subjects', [SubjectController::class, 'index']);
-
-Route::post('/subjects', [SubjectController::class, 'store']);
-
-Route::get('/subjects/{id}', [SubjectController::class, 'show']);
-
-Route::put('/subjects/{id}', [SubjectController::class, 'update']);
-
-Route::delete('/subjects/{id}', [SubjectController::class, 'destroy']);
+//---------------- Technology -----------------------------------------
+Route::get('/technologies', [TechnologyController::class, 'index']);
+Route::get('/technologies/{id}', [TechnologyController::class, 'show']);
+Route::post('/add_technology', [TechnologyController::class, 'store']);
+Route::put('/technologyUpdate/{id}', [TechnologyController::class, 'update']);
+Route::delete('/technologyDelete/{id}', [TechnologyController::class, 'destroy']);
+Route::post('technologies/{technology}/attach', [TechnologyController::class, 'attachToAcademy']);
+Route::post('technologies/{technology}/detach', [TechnologyController::class, 'detachFromAcademy']);
+Route::get('technologies/{technology}/academies', [TechnologyController::class, 'getAssociatedAcademies']);
 
 //---------------- assigment -----------------------------------------
 
