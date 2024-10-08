@@ -10,6 +10,10 @@ class Supervisor extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = ['id'];
+
+
+
     public function user() {
         return $this->belongsTo(User::class);
     }

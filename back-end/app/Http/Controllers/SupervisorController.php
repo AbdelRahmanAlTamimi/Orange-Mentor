@@ -28,8 +28,7 @@ class SupervisorController extends Controller
                 'email' => $request->email,
                 'password' => bcrypt($request->password),
                 'role_id' => 2,
-                'Full_name' => $request->Full_name,
-                'address' => $request->address,
+                'full_name' => $request->full_name,
                 'DOB' => $request->DOB,
                 'phone' => $request->phone,
                 'gender' => $request->gender,
@@ -43,9 +42,12 @@ class SupervisorController extends Controller
             }
             $user = User::create($userData);
 
-            Supervisor::create([
+           $supervisor = Supervisor::create([
                 'id' => $user->id
             ]);
+
+            $user->supervisor_id = $supervisor->id;
+            $user->save();
 
             DB::commit();
 
@@ -114,28 +116,17 @@ class SupervisorController extends Controller
 
     public function destroy($id)
     {
-        $user = User::where('id', $id)->where('role_id', 2)->first();
-        if (!$user) {
+        $supervisor = Supervisor::find($id);
+        if (!$supervisor) {
             return response()->json([
                 'message' => 'Supervisor Not Found'
             ], 404);
         }
+        $supervisor->delete();
 
-        DB::beginTransaction();
-        try {
-            Supervisor::where('id', $id)->delete();
-            $user->delete();
-            DB::commit();
-
-            return response()->json([
-                'message' => 'Supervisor deleted successfully'
-            ], 200);
-        } catch (Exception $e) {
-            DB::rollBack();
-            return response()->json([
-                'message' => 'Something went wrong'
-            ], 500);
-        }
+        return response()->json([
+            'message' => 'Supervisor deleted successfully'
+        ], 200);
     }
 }
 
