@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// App.jsx
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import UserRoutes from './UserRoutes.jsx';
+import AdminRoutes from './AdminRoutes';
+import ProtectedRoute from './utils/ProtectedRoute.jsx';
+import Sidebar from './components/dashboard/Sidebar.jsx';
+import Navbar from './components/dashboard/Navbar.jsx';
+import Footer from './components/dashboard/Footer.jsx';
+import Login from './components/Login';
+import Register from './components/Register.jsx';
+import { AuthProvider } from './context/AuthContext';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+function AdminLayout({ children }) {
+    return (
+        <>
+            <Sidebar />
+            <div className="main-panel">
+                <Navbar />
+                <div className="container">
+                    <div className="page-inner">
+                        {children}
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        </>
+    );
 }
 
-export default App
+function App() {
+    return (
+        <AuthProvider>
+        <Router>
+            <Routes>
+                <Route path="/*" element={<UserRoutes />} />
+                <Route path="/login" element={<Login />} />
+
+
+                <Route
+                    path="/admin/*"
+                    element={
+                        <ProtectedRoute allowedRoles={[1,2,3]}>
+                            <AdminLayout>
+                                <AdminRoutes />
+                            </AdminLayout>
+                        </ProtectedRoute>
+                    }
+                />
+            </Routes>
+        </Router>
+            </AuthProvider>
+    );
+}
+
+export default App;

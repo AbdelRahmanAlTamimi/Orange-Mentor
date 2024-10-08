@@ -1,13 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <link rel="icon" href="public/img/kaiadmin/favicon.ico" type="image/x-icon" />
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <!-- Fonts and icons -->
+    <script src="public/js/plugin/webfont/webfont.min.js"></script>
+
+
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="public/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="public/css/plugins.min.css" />
+    <link rel="stylesheet" href="public/css/kaiadmin.min.css" />
+
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+
+
+    
+
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="public/css/demo.css" />
+    <title>Dashboard</title>
   </head>
   <body>
+    <div class="wrapper">
     <div id="root"></div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
+    <!--   Core JS Files   -->
+    <script src="public/js/core/jquery-3.7.1.min.js"></script>
+    <script src="public/js/core/popper.min.js"></script>
+    <script src="public/js/core/bootstrap.min.js"></script>
+    
+    <!-- jQuery Scrollbar -->
+    <script src="public/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    
+    <!-- Chart JS -->
+    <script src="public/js/plugin/chart.js/chart.min.js"></script>
+    
+    <!-- jQuery Sparkline -->
+    <script src="public/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+    
+    <!-- Chart Circle -->
+    <script src="public/js/plugin/chart-circle/circles.min.js"></script>
+    
+    <!-- Datatables -->
+    <script src="public/js/plugin/datatables/datatables.min.js"></script>
+    
+    <!-- Bootstrap Notify -->
+    <script src="public/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+    
+    <!-- jQuery Vector Maps -->
+    <script src="public/js/plugin/jsvectormap/jsvectormap.min.js"></script>
+    <script src="public/js/plugin/jsvectormap/world.js"></script>
+    
+    <!-- Sweet Alert -->
+    <script src="public/js/plugin/sweetalert/sweetalert.min.js"></script>
+    
+    <!-- Kaiadmin JS -->
+    <script src="public/js/kaiadmin.min.js"></script>
+    
+    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
+    <script src="public/js/setting-demo.js"></script>
+    <script src="public/js/demo.js"></script>
+    <script>
+      $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
+        type: "line",
+        height: "70",
+        width: "100%",
+        lineWidth: "2",
+        lineColor: "#177dff",
+        fillColor: "rgba(23, 125, 255, 0.14)",
+      });
+
+      $("#lineChart2").sparkline([99, 125, 122, 105, 110, 124, 115], {
+        type: "line",
+        height: "70",
+        width: "100%",
+        lineWidth: "2",
+        lineColor: "#f3545d",
+        fillColor: "rgba(243, 84, 93, .14)",
+      });
+
+      $("#lineChart3").sparkline([105, 103, 123, 100, 95, 105, 115], {
+        type: "line",
+        height: "70",
+        width: "100%",
+        lineWidth: "2",
+        lineColor: "#ffa534",
+        fillColor: "rgba(255, 165, 52, .14)",
+      });
+    </script>
   </body>
 </html>
