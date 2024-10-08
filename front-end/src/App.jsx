@@ -35,7 +35,7 @@ function App() {
         <AuthProvider>
         <Router>
             <Routes>
-                <Route path="/*" element={<UserRoutes />} />
+                {/*<Route path="/*" element={<UserRoutes />} />*/}
                 <Route path="/login" element={<Login />} />
 
 
