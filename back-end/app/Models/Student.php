@@ -10,13 +10,14 @@ class Student extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['academy_id'];
+    protected $fillable = ['id'];
+
 
     public function academy() {
         return $this->belongsTo(Academy::class);
     }
     public function user() {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id', 'id');
     }
     public function submissions() {
         return $this->hasMany(Submission::class);

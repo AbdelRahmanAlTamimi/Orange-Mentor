@@ -18,11 +18,11 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ImageController;
 
 
-Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
+//Route::post('/register', [AuthController::class, 'register']);
+//Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/logout', [AuthController::class, 'logout']);
+//    Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
@@ -41,8 +41,8 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 //----------------- Auth --------------------------------
-Route::post('login', [AuthController::class, 'login']);
-Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);// done
+Route::post('register', [AuthController::class, 'register']); //done
 Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
 //--------------- User ---------------------------------
 Route::get('users',[UserController::class,'index']);
@@ -58,10 +58,7 @@ Route::post('add_student',[StudentController::class,'store']);
 Route::put('studentUpdate/{id}',[StudentController::class,'update']);
 Route::delete('studentDelete/{id}',[StudentController::class,'destroy']);
 
-//---------------- Message -----------------------------------------
-Route::get('messages',[MessageController::class,'index']);
-Route::get('message/{id}',[MessageController::class,'show']);
-Route::delete('messageDelete/{id}',[MessageController::class,'destroy']);
+
 
 //------------- Supervisor -------------------------------------------
 Route::get('supervisors',[SupervisorController::class,'index']);

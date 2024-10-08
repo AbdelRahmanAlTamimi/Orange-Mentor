@@ -37,10 +37,6 @@ class AuthController extends Controller
         try {
             DB::beginTransaction();
 
-//            $request->validate([
-//                'password' => 'required|string|min:6',
-//            ]);
-
             $userData = [
                 'username' => $request->username,
                 'email' => $request->email,

@@ -42,7 +42,7 @@ class User extends Authenticatable
     ];
 
     public function student() {
-        return $this->hasOne(Student::class);
+        return $this->hasOne(Student::class, 'id', 'id');
     }
     public function coach() {
         return $this->hasOne(Coach::class);
