@@ -1,19 +1,26 @@
 # Orange Mentor
----
-## Table of Contents
 
+## Table of Contents
 - [Description](#description)
 - [Motivation](#motivation)
-- [Demo Accounts](#demo-accounts)
----
+- [Quick Start](#-quick-start)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+  - [Backend](#backend)
+  - [Frontend](#frontend)
+
 
 ## Description
 A discussion platform like Stack Overflow for Orange Coding Academy students which provides Q&A and knowledge sharing. It supports the markdown format to make the code appear better.
----
+
+![Main Page](images/main_page.png)
+![Discussion](images/discussion.png)
+![Summary](images/summary.jpg)
+
 
 ## Motivation
 Initially, we used WhatsApp or Discord to share information and ask coches questions, but these platforms have some limitations and are not entirely suitable for programming students. This platform was designed to address this issue.
----
+
 
 ## 🚀 Quick Start
 
@@ -41,6 +48,22 @@ The Docker setup will automatically:
 -   Seed the database with demo data
 -   Start all required services (PostgreSQL, Meilisearch, Redis)
 
+
+## Usage
+Once the Docker environment is up and running, you can log in with these accounts:
+
+**Admin Account:**
+
+-   Email: `ahmed.masri@example.com`
+-   Password: `password`
+
+**User Account:**
+
+-   Email: `omar.khatib@example.com`
+-   Password: `password`
+
+then you can use the full features of the website
+
 ## Technologies Used
 
 ### Backend
@@ -63,44 +86,4 @@ The Docker setup will automatically:
 -   **Shiki** - Syntax highlighting for code blocks
 -   **Vue Mention** - User mention functionality
 
-## How to Run the Project
-
-### Using Docker (Recommended)
-
-1. Clone the repository:
-
-```bash
-git clone <repository-url>
-cd Oragne-Mentor
-```
-
-2. Start the application with Docker Compose:
-
-```bash
-docker-compose up -d
-```
-
-3. Access the application:
-    - Frontend: http://localhost:8000
-    - Meilisearch Dashboard: http://localhost:7700
-
-The Docker setup will automatically:
-
--   Install PHP and JavaScript dependencies
--   Run database migrations
--   Seed the database with demo data
--   Start all required services (PostgreSQL, Meilisearch, Redis)
-
-## Demo Accounts
-
-After seeding the database, you can log in with these accounts:
-
-**Admin Account:**
-
--   Email: `ahmed.masri@example.com`
--   Password: `password`
-
-**User Account:**
-
--   Email: `omar.khatib@example.com`
--   Password: `password`
+## Contributing

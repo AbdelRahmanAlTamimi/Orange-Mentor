@@ -89,6 +89,9 @@ services:
     container_name: orange-mentor-node
     restart: unless-stopped
     working_dir: /app
+    environment:
+      - VITE_MEILISEARCH_HOST=http://localhost:7700
+      - VITE_MEILISEARCH_PUBLIC_KEY=
     volumes:
       - .:/app
       - node_modules:/app/node_modules
