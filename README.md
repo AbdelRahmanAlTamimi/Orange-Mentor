@@ -1,6 +1,45 @@
 # Orange Mentor
+---
+## Table of Contents
 
-Orange Mentor is a Orange Coding Academy students' community discussion platform for Q&A, mentoring, and knowledge sharing. It supports markdown format for posts and discussions.
+- [Description](#description)
+- [Motivation](#motivation)
+- [Demo Accounts](#demo-accounts)
+---
+
+## Description
+A discussion platform like Stack Overflow for Orange Coding Academy students which provides Q&A and knowledge sharing. It supports the markdown format to make the code appear better.
+---
+
+## Motivation
+Initially, we used WhatsApp or Discord to share information and ask coches questions, but these platforms have some limitations and are not entirely suitable for programming students. This platform was designed to address this issue.
+---
+
+## 🚀 Quick Start
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd Oragne-Mentor
+```
+
+2. Start the application with Docker Compose:
+
+```bash
+docker-compose up -d
+```
+
+3. Access the application:
+    - Frontend: http://localhost:8000
+    - Meilisearch Dashboard: http://localhost:7700
+
+The Docker setup will automatically:
+
+-   Install PHP and JavaScript dependencies
+-   Run database migrations
+-   Seed the database with demo data
+-   Start all required services (PostgreSQL, Meilisearch, Redis)
 
 ## Technologies Used
 
@@ -51,71 +90,6 @@ The Docker setup will automatically:
 -   Run database migrations
 -   Seed the database with demo data
 -   Start all required services (PostgreSQL, Meilisearch, Redis)
-
-### Manual Setup
-
-**Prerequisites:**
-
--   PHP 8.1+
--   Composer
--   Node.js 18+ and npm
--   PostgreSQL database
--   Meilisearch instance
--   Redis (optional)
-
-**Steps:**
-
-1. Clone the repository:
-
-```bash
-git clone <repository-url>
-cd Oragne-Mentor
-```
-
-2. Install PHP dependencies:
-
-```bash
-composer install
-```
-
-3. Install JavaScript dependencies:
-
-```bash
-npm install
-```
-
-4. Configure environment:
-
-```bash
-cp .env.example .env
-php artisan key:generate
-```
-
-5. Configure your database and Meilisearch settings in `.env`, then run migrations:
-
-```bash
-php artisan db:create # a custom command for creating the database
-php artisan migrate
-php artisan db:seed
-```
-
-6. Create storage symlink:
-
-```bash
-php artisan storage:link
-```
-
-7. Build frontend assets:
-
-```bash
-npm run dev
-```
-
-8. Start the application server:
-
-```bash
-php artisan serve
-```
 
 ## Demo Accounts
 
