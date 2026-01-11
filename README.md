@@ -85,5 +85,3 @@ then you can use the full features of the website
 -   **Vite** - Build tool and dev server
 -   **Shiki** - Syntax highlighting for code blocks
 -   **Vue Mention** - User mention functionality
-
-## Contributing
