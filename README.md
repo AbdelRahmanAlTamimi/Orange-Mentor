@@ -27,7 +27,7 @@ Initially, we used WhatsApp or Discord to share information and ask coches quest
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/AbdelRahmanAlTamimi/Orange-Mentor.git
 cd Oragne-Mentor
 ```
 
